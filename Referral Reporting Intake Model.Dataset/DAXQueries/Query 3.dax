@@ -1,0 +1,12 @@
+EVALUATE
+FILTER (
+        SUMMARIZE (
+            'Involved Person',
+            'Involved Person'[FK_hs_relatedcase],
+            'Involved Person'[Involvement Role],
+            'CSRI Intake'[PK_hs_csri_intakeid],
+			Contact[Cultural Background]
+        ),
+        'Involved Person'[Involvement Role] = "Subject Child/Young Person"
+            && NOT ISBLANK ( 'CSRI Intake'[PK_hs_csri_intakeid] )
+    )
